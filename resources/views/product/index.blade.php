@@ -10,6 +10,8 @@
       <div class="card-body text-center">
         <a href="{{ route('product.show', ['id'=> $product["id"]]) }}"
           class="btn bg-primary text-white">{{ $product["name"] }}</a>
+        <p class="py-1">Price: ${{ $product["price"] }}</p>
+
       </div>
     </div>
   </div>

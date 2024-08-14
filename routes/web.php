@@ -17,6 +17,7 @@ Route::get('/about', function () {
       ->with("description", $description)
       ->with("author", $author);
 })->name("home.about");
+Route::get('/contact', 'App\Http\Controllers\HomeController@contact')->name("contact.index");
 Route::get('/products', 'App\Http\Controllers\ProductController@index')->name("product.index");
 // order matters -------------------------
 Route::get('/products/create', 'App\Http\Controllers\ProductController@create')->name("product.create");
