@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -22,6 +21,10 @@ Route::get('/products', 'App\Http\Controllers\ProductController@index')->name("p
 // order matters -------------------------
 Route::get('/products/create', 'App\Http\Controllers\ProductController@create')->name("product.create");
 Route::post('/products/save', 'App\Http\Controllers\ProductController@save')->name("product.save");
+
+Route::get('/products/created', function () {
+  return view('product.product_created');
+})->name('product.created');
 
 Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show')->name("product.show");
 

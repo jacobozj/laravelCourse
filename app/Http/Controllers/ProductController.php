@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class ProductController extends Controller
 {
@@ -24,8 +25,14 @@ class ProductController extends Controller
         return view('product.index')->with("viewData", $viewData);
     }
 
-    public function show(string $id) : View
+    public function show(string $id) : View | RedirectResponse
     {
+        //isset checks if the value exists and is not null, then chekcs the value
+        //of products array for the id
+        if(!isset(ProductController::$products[$id-1])){
+            //redirect to the index if isset is false
+            return redirect()->route("home.index");
+        }
         $viewData = [];
         $product = ProductController::$products[$id-1];
         $viewData["title"] = $product["name"]." - Online Store";
@@ -33,22 +40,25 @@ class ProductController extends Controller
         $viewData["product"] = $product;
         return view('product.show')->with("viewData", $viewData);
     }
-    public function create(): View
+    public function create(): view | RedirectResponse
     {
         $viewData = []; //to be sent to the view
         $viewData["title"] = "Create product";
         return view('product.create')->with("viewData",$viewData);
     }
-
     public function save(Request $request)
     {
         $request->validate([
             "name" => "required",
             "price" => "required"
         ]);
-        dd($request->all());
+        // dd($request->all());
+        //display message
+        // dd("Saved successfully!");
+        return redirect()->route("product.created");
         //here will be the code to call the model and save it to the database
     }
+
 }
 
 
