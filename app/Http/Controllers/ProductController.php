@@ -55,8 +55,14 @@ class ProductController extends Controller
         // dd($request->all());
         //display message
         // dd("Saved successfully!");
-        return redirect()->route("product.created");
+        // return redirect()->route("product.created");
+        return view('product.product_created');
         //here will be the code to call the model and save it to the database
+    }
+
+    public function created(): View
+    {
+        return view('product.product_created');
     }
 
 }
