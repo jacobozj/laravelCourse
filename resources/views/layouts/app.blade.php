@@ -20,6 +20,9 @@
         <div class="navbar-nav ms-auto">
           <a class="nav-link active" href="{{ route('home.index') }}">Home</a>
           <a class="nav-link active" href="{{ route('home.about') }}">About</a>
+          <a class="nav-link active" href="{{ route('contact.index') }}">Contact</a>
+          <a class="nav-link active" href="{{ route('product.index') }}">Product</a>
+          <a class="nav-link active" href="{{ route('product.create') }}">Create</a>
         </div>
       </div>
     </div>
@@ -41,7 +44,7 @@
     <div class="container">
       <small>
         Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
-          href="https://twitter.com/danielgarax">
+          href="https://twitter.com/jacobozj">
           Jacobo Zuluaga
         </a>
       </small>
