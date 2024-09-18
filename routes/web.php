@@ -29,3 +29,8 @@ Route::post('/image/save', 'App\Http\Controllers\ImageController@save')->name("i
 // ----- No DI -----
 Route::get('/image-not-di', 'App\Http\Controllers\ImageNotDIController@index')->name("imagenotdi.index");
 Route::post('/image-not-di/save', 'App\Http\Controllers\ImageNotDIController@save')->name("imagenotdi.save");
+// -------- peces ----------
+Route::get('/fish', 'App\Http\Controllers\FishController@index')->name("fish.index");
+Route::get('/fish/create', 'App\Http\Controllers\FishController@create')->name("fish.create");
+Route::post('/fish/save', 'App\Http\Controllers\FishController@save')->name("fish.save");
+Route::get('/fish/statistics', 'App\Http\Controllers\FishController@statistics')->name("fish.statistics");
